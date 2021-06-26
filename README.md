@@ -3,9 +3,9 @@
 
 ```sh
 add .env
-connect mongo db
-DATABASE=mongodb+srv://ThetPai:<PASSWORD>@cluster0.c86ik.mongodb.net/employeeDatabse?retryWrites=true&w=majority
-DATABASE_PASSWORD=
+connect with mongo db
+DATABASE=mongodb+srv://[username]:<PASSWORD>@host1[:port1][,...hostN[:portN]][/[defaultauthdb][?options]]
+DATABASE_PASSWORD=[yourpassword]
 ```
 
 Folder Structures
