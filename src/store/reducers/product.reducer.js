@@ -38,7 +38,7 @@ const product = (state = initialState, action) => {
             ...product,
             process_title: action.payload.process_title,
             sub_process_name: action.payload.sub_process_name,
-            sub_process_version: action.payload.sub_process_name,
+            sub_process_version: action.payload.sub_process_version,
           };
         }
         return product;

@@ -1,37 +1,40 @@
-import React, { useState, useEffect } from "react";
-import styled, { css } from "styled-components";
-import axios from "axios";
-import ReactPaginate from "react-paginate";
-import Router, { withRouter } from "next/router";
-import { Header, Layout } from "@/src/components";
+import React, { useState, useEffect } from "react"
+import styled, { css } from "styled-components"
+import axios from "axios"
+import ReactPaginate from "react-paginate"
+import Router, { withRouter } from "next/router"
+import { Header, Layout } from "@/src/components"
 
 const Product = (props) => {
-  const { totalCount, pageCount, currentPage, perPage, posts, router } = props;
-  const [isLoading, setLoading] = useState(false);
+  const { totalCount, pageCount, currentPage, perPage, posts, router } = props
+  const [isLoading, setLoading] = useState(false)
 
-  const startLoading = () => setLoading(true);
-  const stopLoading = () => setLoading(false);
-  console.log(props)
+  const startLoading = () => setLoading(true)
+  const stopLoading = () => setLoading(false)
+
   useEffect(() => {
-    Router.events.on("routeChangeStart", startLoading);
-    Router.events.on("routeChangeComplete", stopLoading);
+    Router.events.on("routeChangeStart", startLoading)
+    Router.events.on("routeChangeComplete", stopLoading)
 
     return () => {
-      Router.events.off("routeChangeStart", startLoading);
-      Router.events.off("routeChangeComplete", stopLoading);
-    };
-  }, []);
+      Router.events.off("routeChangeStart", startLoading)
+      Router.events.off("routeChangeComplete", stopLoading)
+    }
+  }, [])
 
-  const pagginationHandler = (page) => {
-    const currentPath = router?.pathname;
-    const currentQuery = { ...props?.router.query };
-    currentQuery.page = page?.selected + 1;
+  const paginationHandler = page => {
+    const currentPath = router?.pathname
+    const currentQuery = { ...props?.router.query }
+    const per_page = 5
+    currentQuery.page = page?.selected + 1
+    currentQuery.per_page = per_page
+    // console.log(page?.selected + 1)
 
     router.push({
       pathname: currentPath,
-      query: currentQuery,
-    });
-  };
+      query: currentQuery
+    })
+  }
 
   return (
     <Layout title='Product'>
@@ -66,19 +69,20 @@ const Product = (props) => {
             pageCount={pageCount} //page count
             marginPagesDisplayed={3}
             pageRangeDisplayed={3}
-            onPageChange={pagginationHandler}
+            onPageChange={paginationHandler}
           />
         </Col>
       </Row>
     </Layout>
-  );
-};
+  )
+}
 
 Product.getInitialProps = async ({ query }) => {
-  const page = query?.page || 1;
+  const page = query?.page || 1
+  const per_page = query?.per_page || 10
   const posts = await axios.get(
-    `https://gorest.co.in/public-api/products?page=${page}`
-  );
+    `https://gorest.co.in/public-api/products?page=${page}&per_page=${per_page}`
+  )
 
   return {
     totalCount: posts?.data?.meta?.pagination?.total,
@@ -87,8 +91,8 @@ Product.getInitialProps = async ({ query }) => {
     perPage: posts?.data?.meta?.pagination?.pages,
     posts: posts?.data?.data,
     isLoading: false,
-  };
-};
+  }
+}
 
 export default withRouter(Product)
 
