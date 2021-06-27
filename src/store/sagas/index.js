@@ -5,7 +5,7 @@ import {
   watchAddProduct,
   watchRemoveProduct,
   watchUpdateProduct
-} from './employee'
+} from './product'
 
 import {
   watchFetchUser,

@@ -21,6 +21,9 @@ const Layout = ({ title, keyword, desc, children }) => {
 						<li>
 							<Link href='/user'>User</Link>
 						</li>
+						<li>
+							<Link href='/product'>Product</Link>
+						</li>
 					</ul>
 				</header>
 			</main>

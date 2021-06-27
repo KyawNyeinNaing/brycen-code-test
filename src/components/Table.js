@@ -1,6 +1,7 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { PencilSVG, TrashSVG } from '@/src/icons'
+import { Pagination } from '@/src/components'
 import {
 	setModalOpen,
 	fetchProducts,
@@ -9,42 +10,48 @@ import {
 } from '@/src/store'
 
 const Table = () => {
-	const state = useSelector(state => state.product);
+	const [current, setCurrent] = useState(1)
+	const state = useSelector(state => state.product)
 
-	const dispatch = useDispatch();
+	const dispatch = useDispatch()
 
 	useEffect(() => {
-		dispatch(fetchProducts());
-	}, [dispatch]);
+		dispatch(fetchProducts({
+			page_number: current || '',
+			product_per_page: 5
+		}))
+	}, [dispatch, current])
+
+	const onChangePaginate = e => {
+		setCurrent(e)
+	}
 
 	return (
 		<table className="table">
 			<thead className="table__head">
 				<tr>
-					<th>Full name</th>
-					<th>Email</th>
-					<th>Address</th>
-					<th>Phone</th>
-					<th>Parent Name</th>
-					<th>Actions</th>
+					<th>#</th>
+					<th>Process Title</th>
+					<th>Sub Process Name</th>
+					<th>Sub Process Version</th>
+					<th>Action</th>
 				</tr>
 			</thead>
 
 			<tbody className="table__body">
-				
-				{state.productList.map(list => (
-					<tr key={list._id}>
-						<td>{list.name}</td>
-						<td>{list.email}</td>
-						<td>{list.address}</td>
-						<td>{list.phone}</td>
-						<td>{list.parent}</td>
+
+				{state.productList.map((list, key) => (
+					<tr key={key}>
+						<td>{key + 1}</td>
+						<td>{list.process_title}</td>
+						<td>{list.sub_process_name}</td>
+						<td>{list.sub_process_version}</td>
 						<td>
 							<button
 								className="btn btn__compact btn__edit"
 								onClick={() => {
-									dispatch(setSelectedProduct(list._id));
-									dispatch(setModalOpen(true));
+									dispatch(setSelectedProduct(list._id))
+									dispatch(setModalOpen(true))
 								}}
 							>
 								<PencilSVG />
@@ -52,7 +59,7 @@ const Table = () => {
 							<button
 								className="btn btn__compact btn__delete"
 								onClick={() => {
-									dispatch(deleteProduct(list._id));
+									dispatch(deleteProduct(list._id))
 								}}
 							>
 								<TrashSVG />
@@ -60,6 +67,16 @@ const Table = () => {
 						</td>
 					</tr>
 				))}
+				<tr>
+					<td colSpan="5">
+						<Pagination 
+							onChange={onChangePaginate}
+							current={current}
+							total={state?.productList?.length}
+							defaultPageSize={1}
+						/>
+					</td>
+				</tr>
 			</tbody>
 		</table>
 	)

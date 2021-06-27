@@ -1,4 +1,4 @@
-import Employee from "@/src/models/Product";
+import Product from "@/src/models/Product";
 import connectToDatabase from "@/src/utils/dbConnect";
 
 connectToDatabase()
@@ -10,11 +10,11 @@ export default async (req, res) => {
 	switch (method) {
 		case "GET":
 			try {
-				const employee = await Employee.findById(id);
+				const product = await Product.findById(id);
 
 				return res.status(200).json({
 					success: true,
-					data: employee,
+					data: product,
 				});
 			} catch (error) {
 				return res.status(404).json({
@@ -23,14 +23,14 @@ export default async (req, res) => {
 			}
 		case "PUT":
 			try {
-				const employee = await Employee.findByIdAndUpdate(id, req.body, {
+				const product = await Product.findByIdAndUpdate(id, req.body, {
 					new: true,
 					runValidators: true,
 				});
 
 				return res.status(200).json({
 					success: true,
-					data: employee,
+					data: product,
 				});
 			} catch (error) {
 				return res.status(400).json({
@@ -39,7 +39,7 @@ export default async (req, res) => {
 			}
 		case "DELETE":
 			try {
-				await Employee.deleteOne({ _id: id });
+				await Product.deleteOne({ _id: id });
 
 				return res.status(200).json({
 					success: true,

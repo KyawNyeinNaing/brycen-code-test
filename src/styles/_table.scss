@@ -46,6 +46,7 @@
 
 			.btn__edit {
 				color: $color-warning;
+				cursor: pointer;
 
 				&:hover {
 					color: $color-bg;
@@ -54,6 +55,7 @@
 			}
 			.btn__delete {
 				color: $color-error;
+				cursor: pointer;
 
 				&:hover {
 					color: $color-bg;

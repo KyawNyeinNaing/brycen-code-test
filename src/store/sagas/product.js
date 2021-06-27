@@ -1,15 +1,15 @@
-import { put, takeLatest } from "redux-saga/effects"
-import * as types from "@/src/store/types"
+import { put, takeLatest } from 'redux-saga/effects'
+import * as types from '@/src/store/types'
 
 export function* fetchProducts() {
 	try {
-		const response = yield fetch("/api/employees")
+		const response = yield fetch('/api/employees')
 
-		const employeeList = yield response.json()
+		const productList = yield response.json()
 
 		yield put({
 			type: types.PRODUCT_FETCH_SUCCEEDED,
-			payload: employeeList.data,
+			payload: productList.data,
 		})
 	} catch (error) {
 		yield put({
@@ -25,19 +25,19 @@ export function* watchFetchProducts() { // fetch all products
 
 export function* addProduct(action) {
 	try {
-		const response = yield fetch("/api/employees", {
-			method: "POST",
+		const response = yield fetch('/api/employees', {
+			method: 'POST',
 			headers: {
-				"Content-Type": "application/json",
+				'Content-Type': 'application/json',
 			},
 			body: JSON.stringify(action.payload),
 		});
 
-		const newEmployee = yield response.json()
+		const newProduct = yield response.json()
 
 		yield put({
 			type: types.PRODUCT_ADD_SUCCEEDED,
-			payload: newEmployee.data,
+			payload: newProduct.data,
 		});
 	} catch (error) {
 		yield put({
@@ -54,9 +54,9 @@ export function* watchAddProduct() { // add product
 export function* updateProduct(action) {
 	try {
 		const response = yield fetch(`/api/employees/${action.payload._id}`, {
-			method: "PUT",
+			method: 'PUT',
 			headers: {
-				"Content-Type": "application/json",
+				'Content-Type': 'application/json',
 			},
 			body: JSON.stringify(action.payload),
 		})
@@ -82,7 +82,7 @@ export function* watchUpdateProduct() { // update product
 export function* deleteProduct(action) {
 	try {
 		const response = yield fetch(`/api/employees/${action.payload}`, {
-			method: "DELETE",
+			method: 'DELETE',
 		})
 
 		const deletedEmployee = yield response.json();

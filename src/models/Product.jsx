@@ -1,31 +1,22 @@
 import mongoose from "mongoose"
 
 const ProductSchema = new mongoose.Schema({
-	name: {
+	process_title: {
 		type: String,
-		required: [true, "Name is required!"],
+		required: [true, "Process title is required!"],
 		trim: true,
 	},
-	email: {
+	sub_process_name: {
 		type: String,
-		required: [true, "Email is required!"],
+		required: [true, "Sub process name is required!"],
 		trim: true,
 	},
-	address: {
+	sub_process_version: {
 		type: String,
-		required: [true, "Address is required!"],
+		required: [true, "Sub process version is required!"],
 		trim: true,
 	},
-	phone: {
-		type: String,
-		required: [true, "Phone is required!"],
-		trim: true,
-	},
-	parent: {
-		type: String,
-		required: [true, "Parents is required!"],
-		trim: true,
-	},
+	
 	createdAt: { type: Date, default: Date.now },
 })
 

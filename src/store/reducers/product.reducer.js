@@ -34,20 +34,20 @@ const product = (state = initialState, action) => {
 				],
 			}
 		case types.PRODUCT_UPDATE_SUCCEEDED:
-			const updatedEmployee = state.productList.map((employee) => {
-				if (employee._id === action.payload._id) {
+			const updatedProduct = state.productList.map(product => {
+				if (product._id === action.payload._id) {
 					return {
-						...employee,
-						name: action.payload.name,
-						email: action.payload.email,
-						address: action.payload.address,
-						phone: action.payload.phone
+						...product,
+						process_title: action.payload.process_title,
+						sub_process_name: action.payload.sub_process_name,
+						sub_process_version: action.payload.sub_process_name
 					}
 				}
-				return employee
+				return product
 			})
 
-			return { ...state, productList: updatedEmployee }
+			return { ...state, productList: updatedProduct }
+
 		case types.PRODUCT_DELETE_SUCCEEDED:
 			const newproductList = state.productList.filter(
 				(employee) => employee._id !== action.payload

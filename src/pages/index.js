@@ -1,4 +1,4 @@
-import { Header, Layout, Modal, Pagination, Table } from "@/src/components"	
+import { Header, Layout, Modal, Table } from "@/src/components"	
 
 const Home = () => {
 	return (
@@ -6,7 +6,6 @@ const Home = () => {
 			<Layout title='Home'>
 				<Header name='Product' />
 				<Table />
-				<Pagination />
 				<Modal />
 			</Layout>
 		</div>
