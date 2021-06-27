@@ -1,17 +1,17 @@
 .layout {
-	max-width: 108rem;
-	height: 100%;
+  max-width: 108rem;
+  height: 100%;
 
-	margin: 4rem auto;
+  margin: 4rem auto;
 
-	border-radius: 3px;
-	background-color: $color-bg;
-	box-shadow: $shadow-sm;
+  border-radius: 3px;
+  background-color: $color-bg;
+  box-shadow: $shadow-sm;
 
-	overflow: hidden;
+  overflow: hidden;
 
-	@include media(768px) {
-		margin: 0;
-		max-width: 100%;
-	}
+  @include media(768px) {
+    margin: 0;
+    max-width: 100%;
+  }
 }

@@ -1,3 +1,3 @@
-export * from "./product.action"
+export * from "./product.action";
 
-export * from './user.action'
+export * from "./user.action";

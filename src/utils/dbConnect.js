@@ -1,29 +1,32 @@
-import mongoose from "mongoose"
+import mongoose from "mongoose";
 
-const connection = {}
+const connection = {};
 
 const connectToDatabase = async () => {
-	if (connection.isConnected) {
-		return
-	}
+  if (connection.isConnected) {
+    return;
+  }
 
-	const database = process.env.DATABASE?.replace('<PASSWORD>', process.env.DATABASE_PASSWORD)
+  const database = process.env.DATABASE?.replace(
+    "<PASSWORD>",
+    process.env.DATABASE_PASSWORD
+  );
 
-	try {
-		const db = await mongoose.connect(database, {
-			useNewUrlParser: true,
-			useUnifiedTopology: true,
-			useCreateIndex: true,
-			useFindAndModify: false,
-		});
+  try {
+    const db = await mongoose.connect(database, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+      useCreateIndex: true,
+      useFindAndModify: false,
+    });
 
-		connection.isConnected = db.connections[0].readyState
+    connection.isConnected = db.connections[0].readyState;
 
-		console.log('Connect with Database!')
-	} catch (error) {
-		console.log('Database connection fail!')
-		console.log(error)
-	}
-}
+    console.log("Connect with Database!");
+  } catch (error) {
+    console.log("Database connection fail!");
+    console.log(error);
+  }
+};
 
-export default connectToDatabase
+export default connectToDatabase;

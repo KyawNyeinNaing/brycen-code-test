@@ -1,18 +1,18 @@
-import { all } from '@redux-saga/core/effects'
+import { all } from "@redux-saga/core/effects";
 
 import {
   watchFetchProducts,
   watchAddProduct,
   watchRemoveProduct,
-  watchUpdateProduct
-} from './product'
+  watchUpdateProduct,
+} from "./product";
 
 import {
   watchFetchUser,
   watchAddUser,
   watchRemoveUser,
-  watchUpdateUser
-} from './user'
+  watchUpdateUser,
+} from "./user";
 
 export default function* rootSaga() {
   yield all([
@@ -26,6 +26,6 @@ export default function* rootSaga() {
     watchFetchUser(),
     watchAddUser(),
     watchRemoveUser(),
-    watchUpdateUser()
-  ])
+    watchUpdateUser(),
+  ]);
 }

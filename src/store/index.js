@@ -1,3 +1,3 @@
-export { default as wrapper } from './store'
+export { default as wrapper } from "./store";
 
-export * from "./actions"
+export * from "./actions";
