@@ -7,8 +7,6 @@ import { Header, Layout } from "@/src/components"
 
 const Product = (props) => {
   const { posts, router } = props
-
-  console.log(props)
   const [isLoading, setLoading] = useState(false)
 
   const startLoading = () => setLoading(true)

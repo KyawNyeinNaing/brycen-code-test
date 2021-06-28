@@ -1,16 +1,16 @@
-import mongoose from "mongoose";
+import mongoose from 'mongoose'
 
-const connection = {};
+const connection = {}
 
 const connectToDatabase = async () => {
   if (connection.isConnected) {
-    return;
+    return
   }
 
   const database = process.env.DATABASE?.replace(
-    "<PASSWORD>",
+    '<PASSWORD>',
     process.env.DATABASE_PASSWORD
-  );
+  )
 
   try {
     const db = await mongoose.connect(database, {
@@ -18,15 +18,15 @@ const connectToDatabase = async () => {
       useUnifiedTopology: true,
       useCreateIndex: true,
       useFindAndModify: false,
-    });
+    })
 
-    connection.isConnected = db.connections[0].readyState;
+    connection.isConnected = db.connections[0].readyState
 
-    console.log("Connect with Database!");
+    console.log('Connect with Database!')
   } catch (error) {
-    console.log("Database connection fail!");
-    console.log(error);
+    console.log('Database connection fail!')
+    console.log(error)
   }
-};
+}
 
-export default connectToDatabase;
+export default connectToDatabase

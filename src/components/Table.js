@@ -50,10 +50,10 @@ const Table = () => {
             <td style={{
               display: 'flex',
               alignItems: 'center',
-              justifyContent: 'space-around'
+              justifyContent: 'flex-start'
             }}>
               <button
-                className="btn btn__compact btn__edit"
+                className="btn btn__compact btn__edit mr-2"
                 onClick={() => {
                   dispatch(setSelectedProduct(list._id));
                   dispatch(setModalOpen(true));
