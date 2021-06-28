@@ -47,7 +47,11 @@ const Table = () => {
             <td>{list.process_title}</td>
             <td>{list.sub_process_name}</td>
             <td>{list.sub_process_version}</td>
-            <td>
+            <td style={{
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'space-around'
+            }}>
               <button
                 className="btn btn__compact btn__edit"
                 onClick={() => {

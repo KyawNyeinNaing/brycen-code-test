@@ -1,5 +1,6 @@
-import Head from "next/head";
-import Link from "next/link";
+import Head from "next/head"
+import Link from "next/link"
+import styled from "styled-components"
 
 const Layout = ({ title, keyword, desc, children }) => {
   return (
@@ -13,29 +14,49 @@ const Layout = ({ title, keyword, desc, children }) => {
         <link rel="icon" href="/favicon.svg" />
       </Head>
       <main>
-        <header>
+        <NavHeader>
           <ul>
             <li>
-              <Link href="/">Employee</Link>
+              <Link href="/">Product</Link>
             </li>
             <li>
               <Link href="/user">User</Link>
             </li>
             <li>
-              <Link href="/product">Product</Link>
+              <Link href="/product">Pagination</Link>
             </li>
           </ul>
-        </header>
+        </NavHeader>
       </main>
       {children}
     </article>
-  );
-};
+  )
+}
 
 Layout.defaultProps = {
-  title: "My Porifolio",
+  title: "Code Test",
   keyword: "Web Development, Programming",
-  desc: "Get the latest news in web dev",
-};
+  desc: "Code Test",
+}
 
-export default Layout;
+export default Layout
+
+const NavHeader = styled.header`
+  background-color: #a7d0ff;
+  padding: 10px;
+  ul {
+    list-style: none;
+    display: flex;
+    li {
+      margin-right: 15px;
+      &:last-child {
+        margin-right: 0;
+      }
+      a {
+        text-decoration: none;
+        color: #000000;
+        font-weight: 600;
+      }
+    }
+  }
+`

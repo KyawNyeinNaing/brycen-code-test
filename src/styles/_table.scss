@@ -29,15 +29,6 @@
       & > td {
         padding: 0.8rem 1.6rem;
       }
-
-      & > td:last-of-type {
-        height: 100%;
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 0.8rem;
-        align-items: center;
-        justify-content: center;
-      }
     }
 
     & > tr:hover,
