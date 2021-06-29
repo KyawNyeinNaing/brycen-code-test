@@ -4,6 +4,7 @@ import axios from 'axios'
 import ReactPaginate from 'react-paginate'
 import Router, { withRouter } from 'next/router'
 import { Header, Layout } from '@/src/components'
+import { HiChevronLeft, HiChevronRight } from 'react-icons/hi'
 
 const Product = (props) => {
   const { posts, router } = props
@@ -73,8 +74,8 @@ const Product = (props) => {
           <tr>
             <td colSpan='9'>
               <ReactPaginate
-                previousLabel={'previous'}
-                nextLabel={'next'}
+                previousLabel={<HiChevronLeft />}
+                nextLabel={<HiChevronRight />}
                 breakLabel={'...'}
                 breakClassName={'break'}
                 activeClassName={'active'}
