@@ -95,7 +95,7 @@ const Product = (props) => {
 
 Product.getInitialProps = async ({ query }) => {
   const page = query?.page || 1
-  const per_page = query?.per_page || 10
+  const per_page = query?.per_page || 5
   const posts = await axios.get(
     `https://api.instantwebtools.net/v1/passenger?page=${page}&size=${per_page}`
   )
