@@ -1,7 +1,7 @@
-import Pagination from "rc-pagination";
+import Pagination from 'rc-pagination'
 
 const PaginationData = (props) => {
-  const { onChange, current, total } = props;
+  const { onChange, current, total } = props
   return (
     <Pagination
       onChange={onChange}
@@ -10,7 +10,7 @@ const PaginationData = (props) => {
       shwLessItems={true}
       showTitle={false}
     />
-  );
-};
+  )
+}
 
-export default PaginationData;
+export default PaginationData

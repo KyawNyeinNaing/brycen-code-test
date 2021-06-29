@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from "react"
-import styled, { css } from "styled-components"
-import axios from "axios"
-import ReactPaginate from "react-paginate"
-import Router, { withRouter } from "next/router"
-import { Header, Layout } from "@/src/components"
+import React, { useState, useEffect } from 'react'
+import styled, { css } from 'styled-components'
+import axios from 'axios'
+import ReactPaginate from 'react-paginate'
+import Router, { withRouter } from 'next/router'
+import { Header, Layout } from '@/src/components'
 
 const Product = (props) => {
   const { posts, router } = props
@@ -13,12 +13,12 @@ const Product = (props) => {
   const stopLoading = () => setLoading(false)
 
   useEffect(() => {
-    Router.events.on("routeChangeStart", startLoading)
-    Router.events.on("routeChangeComplete", stopLoading)
+    Router.events.on('routeChangeStart', startLoading)
+    Router.events.on('routeChangeComplete', stopLoading)
 
     return () => {
-      Router.events.off("routeChangeStart", startLoading)
-      Router.events.off("routeChangeComplete", stopLoading)
+      Router.events.off('routeChangeStart', startLoading)
+      Router.events.off('routeChangeComplete', stopLoading)
     }
   }, [])
 
@@ -37,8 +37,8 @@ const Product = (props) => {
 
   return (
     <Layout title='Product'>
-      <table className="table">
-        <thead className="table__head">
+      <table className='table'>
+        <thead className='table__head'>
           <tr>
             <th>#</th>
             <th>Logo</th>
@@ -52,10 +52,10 @@ const Product = (props) => {
           </tr>
         </thead>
 
-        <tbody className="table__body">
+        <tbody className='table__body'>
           {isLoading ? (<span>Loading...</span>) : (
             posts?.data?.map((post, key) => (
-              <tr>
+              <tr key={key}>
                 <td>{key + 1}</td>
                 <td>
                   <img src={post?.airline?.logo} alt={post?.name} style={{ width: '100%' }} />
@@ -71,15 +71,15 @@ const Product = (props) => {
             ))
           )}
           <tr>
-            <td colspan="9">
+            <td colSpan='9'>
               <ReactPaginate
-                previousLabel={"previous"}
-                nextLabel={"next"}
-                breakLabel={"..."}
-                breakClassName={"break"}
-                activeClassName={"active"}
-                containerClassName={"pagination"}
-                subContainerClassName={"pages pagination"}
+                previousLabel={'previous'}
+                nextLabel={'next'}
+                breakLabel={'...'}
+                breakClassName={'break'}
+                activeClassName={'active'}
+                containerClassName={'pagination'}
+                subContainerClassName={'pages pagination'}
                 marginPagesDisplayed={3}
                 pageRangeDisplayed={3}
                 onPageChange={paginationHandler}
@@ -106,23 +106,3 @@ Product.getInitialProps = async ({ query }) => {
 }
 
 export default withRouter(Product)
-
-const percent = (val) => Number(val / 12) * 100
-
-const Row = styled.div`
-  margin-left: -15px;
-  margin-right: -15px;
-  display: flex;
-  flex-wrap: wrap;
-`
-
-const Col = styled.div`
-  width: 100%;
-  max-width: 100%;
-  padding-right: 15px;
-  padding-left: 15px;
-  box-sizing: border-box;
-  ${({ space }) => space && css`
-    width: ${percent(space)}%;
-  `}
-`

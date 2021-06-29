@@ -1,0 +1,104 @@
+{
+  "data": [
+    {
+      "name": "hello",
+      "checked": false,
+      "id": "6B9CE5A4-1993-4FED-BF14-0E2E654822DD",
+      "nestedBoxes": [
+        {
+          "name": "one",
+          "id": "D05E3F88-5FAA-48A0-AB97-DCFB65C8D002",
+          "checked": false
+        },
+        {
+          "name": "two",
+          "id": "AE0EE64B-0E76-44A6-9B6D-4B53393C351F",
+          "checked": false
+        }
+      ]
+    },
+    {
+      "name": "there",
+      "checked": false,
+      "id": "DDF785D1-5343-4272-A6A1-06AFF00355D9",
+      "nestedBoxes": [
+        {
+          "name": "one",
+          "id": "F36D6390-C66F-4CAC-B7A9-048D421FBD9C",
+          "checked": false
+        },
+        {
+          "name": "two",
+          "id": "4D2623E0-5B3E-4A5C-B402-0EA0155BB404",
+          "checked": false
+        }
+      ]
+    },
+    {
+      "name": "this",
+      "id": "935591BA-1DD1-458E-8BCE-4812F8155920",
+      "checked": false,
+      "nestedBoxes": [
+        {
+          "name": "one",
+          "id": "1E059FCF-99EA-4A3D-A61A-8CFFD5CED65E",
+          "checked": false
+        },
+        {
+          "name": "two",
+          "id": "EF6D2361-6A06-4047-A694-50F37C9A9227",
+          "checked": false
+        },
+        {
+          "name": "three",
+          "id": "D1D34CAE-C7E9-4909-82F8-43EE87D9A706",
+          "checked": false
+        }
+      ]
+    },
+    {
+      "name": "asdf",
+      "id": "935591BA-1DD1-458E-8BCE-4812F8155920",
+      "checked": false,
+      "nestedBoxes": [
+        {
+          "name": "one",
+          "id": "1E059FCF-99EA-4A3D-A61A-8CFFD5CED65E",
+          "checked": false
+        },
+        {
+          "name": "two",
+          "id": "EF6D2361-6A06-4047-A694-50F37C9A9227",
+          "checked": false
+        },
+        {
+          "name": "three",
+          "id": "D1D34CAE-C7E9-4909-82F8-43EE87D9A706",
+          "checked": false
+        }
+      ]
+    },
+    {
+      "name": "1234",
+      "id": "935591BA-1DD1-458E-8BCE-4812F8155920",
+      "checked": false,
+      "nestedBoxes": [
+        {
+          "name": "one",
+          "id": "1E059FCF-99EA-4A3D-A61A-8CFFD5CED65E",
+          "checked": false
+        },
+        {
+          "name": "two",
+          "id": "EF6D2361-6A06-4047-A694-50F37C9A9227",
+          "checked": false
+        },
+        {
+          "name": "three",
+          "id": "D1D34CAE-C7E9-4909-82F8-43EE87D9A706",
+          "checked": false
+        }
+      ]
+    }
+  ]
+}

@@ -1,19 +1,19 @@
-import mongoose from "mongoose";
+import mongoose from 'mongoose';
 
 const ProductSchema = new mongoose.Schema({
   process_title: {
     type: String,
-    required: [true, "Process title is required!"],
+    required: [true, 'Process title is required!'],
     trim: true,
   },
   sub_process_name: {
     type: String,
-    required: [true, "Sub process name is required!"],
+    required: [true, 'Sub process name is required!'],
     trim: true,
   },
   sub_process_version: {
     type: String,
-    required: [true, "Sub process version is required!"],
+    required: [true, 'Sub process version is required!'],
     trim: true,
   },
 
@@ -21,4 +21,4 @@ const ProductSchema = new mongoose.Schema({
 });
 
 export default mongoose.models.Product ||
-  mongoose.model("Product", ProductSchema);
+  mongoose.model('Product', ProductSchema);

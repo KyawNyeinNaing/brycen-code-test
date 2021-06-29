@@ -1,5 +1,5 @@
-import Product from "@/src/models/Product";
-import connectToDatabase from "@/src/utils/dbConnect";
+import Product from '@/src/models/Product';
+import connectToDatabase from '@/src/utils/dbConnect';
 
 connectToDatabase();
 
@@ -10,7 +10,7 @@ export default async (req, res) => {
   } = req;
 
   switch (method) {
-    case "GET":
+    case 'GET':
       try {
         const product = await Product.findById(id);
 
@@ -23,7 +23,7 @@ export default async (req, res) => {
           success: false,
         });
       }
-    case "PUT":
+    case 'PUT':
       try {
         const product = await Product.findByIdAndUpdate(id, req.body, {
           new: true,
@@ -39,7 +39,7 @@ export default async (req, res) => {
           success: false,
         });
       }
-    case "DELETE":
+    case 'DELETE':
       try {
         await Product.deleteOne({ _id: id });
 
@@ -53,7 +53,7 @@ export default async (req, res) => {
         });
       }
     default:
-      res.setHeaders("Allow", ["GET", "PUT", "DELETE"]);
+      res.setHeaders('Allow', ['GET', 'PUT', 'DELETE']);
       return res
         .status(405)
         .json({ success: false })

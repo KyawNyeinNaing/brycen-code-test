@@ -1,6 +1,7 @@
-import { wrapper } from "@/src/store";
+import { wrapper } from '@/src/store';
 
-import "@/src/styles/main.scss";
+
+import '@/src/styles/main.scss';
 
 const App = ({ Component, pageProps }) => {
   return <Component {...pageProps} />;

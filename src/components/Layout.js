@@ -1,29 +1,29 @@
-import Head from "next/head"
-import Link from "next/link"
-import styled from "styled-components"
+import Head from 'next/head'
+import Link from 'next/link'
+import styled from 'styled-components'
 
 const Layout = ({ title, keyword, desc, children }) => {
   return (
-    <article className="layout">
+    <article className='layout'>
       <Head>
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="keywords" content={keyword} />
-        <meta name="description" content={desc} />
-        <meta charSet="utf-8" />
+        <meta name='viewport' content='width=device-width, initial-scale=1' />
+        <meta name='keywords' content={keyword} />
+        <meta name='description' content={desc} />
+        <meta charSet='utf-8' />
         <title>{title}</title>
-        <link rel="icon" href="/favicon.svg" />
+        <link rel='icon' href='/favicon.svg' />
       </Head>
       <main>
         <NavHeader>
           <ul>
             <li>
-              <Link href="/">Product</Link>
+              <Link href='/'>Product</Link>
             </li>
             <li>
-              <Link href="/user">User</Link>
+              <Link href='/register'>Register</Link>
             </li>
             <li>
-              <Link href="/product">Pagination</Link>
+              <Link href='/product'>Pagination</Link>
             </li>
           </ul>
         </NavHeader>
@@ -34,9 +34,9 @@ const Layout = ({ title, keyword, desc, children }) => {
 }
 
 Layout.defaultProps = {
-  title: "Code Test",
-  keyword: "Web Development, Programming",
-  desc: "Code Test",
+  title: 'Code Test',
+  keyword: 'Web Development, Programming',
+  desc: 'Code Test',
 }
 
 export default Layout
